@@ -1,0 +1,27 @@
+{
+    "name": "balajidharma/laravel-admin-core",
+    "description": "Laravel admin core",
+    "license": "MIT",
+    "keywords": ["admin","laravel","admin-panel","admin-core", "laravel-admin-panel"],
+    "authors": [
+        {
+            "name": "Balaji Dharmaraja",
+            "homepage": "https://github.com/balajidharma"
+        }
+    ],
+    "require": {
+        "spatie/laravel-permission": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalajiDharma\\LaravelAdminCore\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BalajiDharma\\LaravelAdminCore\\AdminCoreServiceProvider"
+            ]
+        }
+    }
+}
