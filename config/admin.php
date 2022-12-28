@@ -11,5 +11,5 @@ return [
     | You can override the value by setting new prefix instead of admin.
     |
     */
-    'prefix' => env('ADMIN_PREFIX', 'admin1'),
+    'prefix' => env('ADMIN_PREFIX', 'admin'),
 ];
