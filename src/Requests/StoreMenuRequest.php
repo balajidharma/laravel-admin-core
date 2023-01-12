@@ -24,9 +24,9 @@ class StoreMenuRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|max:255',
             'machine_name' => 'required|alpha_dash|lowercase|max:64|unique:'.config('menu.table_names.menus', 'menus').',machine_name',
-            'description' => 'string|max:255'
+            'description' => 'max:255'
         ];
     }
 

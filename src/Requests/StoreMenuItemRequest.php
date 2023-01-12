@@ -24,9 +24,9 @@ class StoreMenuItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|max:255',
             'uri' => 'required',
-            'description' => 'string|max:255',
+            'description' => 'max:255',
         ];
     }
 }
