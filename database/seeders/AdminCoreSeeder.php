@@ -42,6 +42,14 @@ class AdminCoreSeeder extends Seeder
             'menu.item create',
             'menu.item edit',
             'menu.item delete',
+            'category list',
+            'category create',
+            'category edit',
+            'category delete',
+            'category.type list',
+            'category.type create',
+            'category.type edit',
+            'category.type delete',
         ];
 
         foreach ($permissions as $permission) {
@@ -118,6 +126,12 @@ class AdminCoreSeeder extends Seeder
             [
                 'name'      => 'Menus',
                 'uri'       => '/<admin>/menu',
+                'enabled'   => 1,
+                'weight'    => 4,
+            ],
+            [
+                'name'      => 'Categories',
+                'uri'       => '/<admin>/category/type',
                 'enabled'   => 1,
                 'weight'    => 4,
             ]
