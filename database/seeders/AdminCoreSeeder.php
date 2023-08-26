@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use BalajiDharma\LaravelCategory\Models\CategoryType;
 use BalajiDharma\LaravelMenu\Models\Menu;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -138,5 +139,19 @@ class AdminCoreSeeder extends Seeder
         ];
 
         $menu->menuItems()->createMany($menu_items);
+
+        // create category type
+        CategoryType::create([
+            'name' => 'Category',
+            'machine_name' => 'category',
+            'description' => 'Main Category',
+        ]);
+
+        CategoryType::create([
+            'name' => 'Tag',
+            'machine_name' => 'tag',
+            'description' => 'Site Tags',
+            'is_flat' => true,
+        ]);
     }
 }
