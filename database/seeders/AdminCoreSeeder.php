@@ -102,7 +102,7 @@ class AdminCoreSeeder extends Seeder
         $menu_items = [
             [
                 'name'      => 'Dashboard',
-                'uri'       => '/dashboard',
+                'uri'       => '/<admin>',
                 'enabled'   => 1,
                 'weight'    => 0,
             ],
