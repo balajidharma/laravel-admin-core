@@ -21,4 +21,3 @@ class CreateUser
         return $user;
     }
 }
-

@@ -26,7 +26,7 @@ class StoreMenuRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'machine_name' => 'required|alpha_dash|lowercase|max:64|unique:'.config('menu.table_names.menus', 'menus').',machine_name',
-            'description' => 'max:255'
+            'description' => 'max:255',
         ];
     }
 
@@ -39,7 +39,7 @@ class StoreMenuRequest extends FormRequest
     {
         return [
             'machine_name.lowercase' => 'The machine name must only contain lowercase letters, numbers, dashes and underscores.',
-            'machine_name.alpha_dash' => 'The machine name must only contain lowercase letters, numbers, dashes and underscores.'
+            'machine_name.alpha_dash' => 'The machine name must only contain lowercase letters, numbers, dashes and underscores.',
         ];
     }
 }

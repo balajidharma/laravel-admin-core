@@ -18,7 +18,7 @@ class AdminCoreServiceProvider extends ServiceProvider
         );
     }
 
-     /**
+    /**
      * Bootstrap the application events.
      *
      * @return void
@@ -35,5 +35,4 @@ class AdminCoreServiceProvider extends ServiceProvider
             ], 'admin-core-seeders');
         }
     }
-
 }

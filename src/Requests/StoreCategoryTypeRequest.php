@@ -26,7 +26,7 @@ class StoreCategoryTypeRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'machine_name' => 'required|alpha_dash|lowercase|max:64|unique:'.config('category.table_names.category_types', 'category_types').',machine_name',
-            'description' => 'max:255'
+            'description' => 'max:255',
         ];
     }
 
@@ -39,7 +39,7 @@ class StoreCategoryTypeRequest extends FormRequest
     {
         return [
             'machine_name.lowercase' => 'The machine name must only contain lowercase letters, numbers, dashes and underscores.',
-            'machine_name.alpha_dash' => 'The machine name must only contain lowercase letters, numbers, dashes and underscores.'
+            'machine_name.alpha_dash' => 'The machine name must only contain lowercase letters, numbers, dashes and underscores.',
         ];
     }
 }

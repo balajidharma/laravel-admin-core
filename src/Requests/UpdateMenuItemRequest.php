@@ -26,7 +26,7 @@ class UpdateMenuItemRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'uri' => 'required',
-            'description' => 'max:255'
+            'description' => 'max:255',
         ];
     }
 }
