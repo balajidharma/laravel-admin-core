@@ -28,11 +28,11 @@ class AdminCoreServiceProvider extends ServiceProvider
         if (app()->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/admin.php' => config_path('admin.php'),
-            ], 'admin-core-config');
+            ], ['config', 'admin-core', 'admin-core-config']);
 
             $this->publishes([
                 __DIR__.'/../database/seeders/AdminCoreSeeder.php' => database_path('seeders/AdminCoreSeeder.php'),
-            ], 'admin-core-seeders');
+            ], ['seeders', 'admin-core', 'admin-core-seeders']);
         }
     }
 }
