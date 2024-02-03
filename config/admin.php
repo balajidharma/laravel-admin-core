@@ -12,4 +12,17 @@ return [
     |
     */
     'prefix' => env('ADMIN_PREFIX', 'admin'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Pagination Settings
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default pagination settings for your application.
+    |
+    */
+    'paginate' => [
+        'per_page' => 10,
+        'each_side' => 2,
+    ],
 ];
