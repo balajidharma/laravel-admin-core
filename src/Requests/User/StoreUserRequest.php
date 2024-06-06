@@ -2,7 +2,7 @@
 
 namespace BalajiDharma\LaravelAdminCore\Requests\User;
 
-use BalajiDharma\LaravelAdminCore\Data\User\UserData;
+use BalajiDharma\LaravelAdminCore\Data\User\UserCreateData;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules;
 
@@ -32,8 +32,8 @@ class StoreUserRequest extends FormRequest
         ];
     }
 
-    public function getUserData(): UserData
+    public function getUserData(): UserCreateData
     {
-        return UserData::from($this);
+        return UserCreateData::from($this);
     }
 }
