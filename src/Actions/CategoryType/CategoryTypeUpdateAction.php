@@ -12,6 +12,7 @@ class CategoryTypeUpdateAction
         return $categoryType->update([
             'name' => $data->getName(),
             'description' => $data->getDescription(),
+            'is_flat' => $data->getIsFlat(),
         ]);
     }
 }
