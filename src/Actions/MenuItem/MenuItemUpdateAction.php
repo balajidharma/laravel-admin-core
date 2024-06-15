@@ -19,7 +19,7 @@ class MenuItemUpdateAction
             'icon' => $data->getIcon(),
         ]);
 
-        $menuItem->syncRoles(array_map('intval', $data->getRoles()));
+        $menuItem->syncRoles($data->getRoles());
 
         return $menuItem;
     }

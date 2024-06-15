@@ -65,6 +65,6 @@ class MenuItemCreateData extends Data
 
     public function getRoles(): ?array
     {
-        return $this->roles;
+        return $this->roles ?? [];
     }
 }
