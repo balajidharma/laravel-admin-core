@@ -13,8 +13,7 @@ class MediaUpdateData extends Data
         public string $type,
         public ?string $name,
         public ?string $alt,
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

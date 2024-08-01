@@ -9,8 +9,7 @@ class PermissionCreateData extends Data
 {
     public function __construct(
         public string $name
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

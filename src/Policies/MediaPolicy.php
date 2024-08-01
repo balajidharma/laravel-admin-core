@@ -3,8 +3,8 @@
 namespace BalajiDharma\LaravelAdminCore\Policies;
 
 use App\Models\User;
-use Plank\Mediable\Media;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Plank\Mediable\Media;
 
 class MediaPolicy
 {

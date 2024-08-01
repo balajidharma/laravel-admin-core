@@ -16,8 +16,7 @@ class MenuItemUpdateData extends Data
         public ?int $weight,
         public ?string $icon,
         public ?array $roles = [],
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

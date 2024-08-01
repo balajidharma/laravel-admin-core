@@ -11,8 +11,7 @@ class CategoryTypeUpdateData extends Data
         public string $name,
         public ?string $description,
         public ?bool $is_flat = false,
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

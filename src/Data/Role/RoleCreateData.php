@@ -10,8 +10,7 @@ class RoleCreateData extends Data
     public function __construct(
         public string $name,
         public ?array $permissions
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

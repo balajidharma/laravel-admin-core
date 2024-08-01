@@ -11,8 +11,7 @@ class MenuCreateData extends Data
         public string $name,
         public string $machine_name,
         public ?string $description,
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

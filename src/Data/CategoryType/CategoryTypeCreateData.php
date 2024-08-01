@@ -12,8 +12,7 @@ class CategoryTypeCreateData extends Data
         public string $machine_name,
         public ?string $description,
         public ?bool $is_flat = false,
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

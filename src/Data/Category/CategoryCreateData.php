@@ -14,8 +14,7 @@ class CategoryCreateData extends Data
         public ?bool $enabled,
         public ?int $parentId,
         public ?int $weight = 0,
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {

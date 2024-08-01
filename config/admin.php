@@ -51,4 +51,6 @@ return [
     'permission' => [
         'access_admin' => env('APP_PERMISSION_ACCESS_ADMIN', 'admin user'),
     ],
+
+    'super_admin' => env('APP_SUPER_ADMIN', 'super-admin'),
 ];

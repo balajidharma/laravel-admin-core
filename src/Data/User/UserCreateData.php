@@ -14,8 +14,7 @@ class UserCreateData extends Data
         public string $email,
         public ?string $password,
         public ?array $roles
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {
