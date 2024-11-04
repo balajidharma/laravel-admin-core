@@ -175,5 +175,12 @@ class AdminCoreSeeder extends Seeder
             'description' => 'Site Tags',
             'is_flat' => true,
         ]);
+
+        CategoryType::create([
+            'name' => 'Admin Tag',
+            'machine_name' => 'admin_tag',
+            'description' => 'Admin Tags',
+            'is_flat' => true,
+        ]);
     }
 }

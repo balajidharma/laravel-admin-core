@@ -12,7 +12,7 @@ class CategoryCreateData extends Data
         public ?string $slug,
         public ?string $description,
         public ?bool $enabled,
-        public ?int $parentId,
+        public ?int $parent_id,
         public ?int $weight = 0,
     ) {}
 
@@ -46,7 +46,7 @@ class CategoryCreateData extends Data
 
     public function getParentId(): ?int
     {
-        return $this->parentId;
+        return $this->parent_id;
     }
 
     public function getWeight(): ?int
