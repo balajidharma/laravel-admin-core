@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\Menu;
 
-use Spatie\LaravelData\Data;
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class MenuCreateData extends Data
+class MenuCreateData extends BaseData
 {
     public function __construct(
         public string $name,

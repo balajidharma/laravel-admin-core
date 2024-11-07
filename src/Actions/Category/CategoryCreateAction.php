@@ -9,7 +9,7 @@ class CategoryCreateAction
 {
     public function handle(CategoryCreateData $data, CategoryType $categoryType)
     {
-        return $categoryType->categories()->create([
+        $category = $categoryType->categories()->create([
             'name' => $data->getName(),
             'slug' => $data->getSlug(),
             'description' => $data->getDescription(),
@@ -17,5 +17,9 @@ class CategoryCreateAction
             'parent_id' => $data->getParentId(),
             'weight' => $data->getWeight(),
         ]);
+
+        attachCategories($category, $data->getAdminTags());
+
+        return $category;
     }
 }

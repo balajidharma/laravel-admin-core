@@ -17,6 +17,9 @@ class MediaUpdateAction
 
     public function handle(MediaUpdateData $data, Media $media)
     {
-        return $this->mediaManager->createFromSource($data->getFile(), $data->getType(), $data->getName(), $data->getAlt(), $media);
+        $media = $this->mediaManager->createFromSource($data->getFile(), $data->getType(), $data->getName(), $data->getAlt(), $media);
+        attachCategories($media, $data->getAdminTags());
+
+        return $media;
     }
 }

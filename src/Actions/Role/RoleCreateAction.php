@@ -17,6 +17,8 @@ class RoleCreateAction
             $role->givePermissionTo($data->getPermissions());
         }
 
+        attachCategories($role, $data->getAdminTags());
+
         return $role;
     }
 }

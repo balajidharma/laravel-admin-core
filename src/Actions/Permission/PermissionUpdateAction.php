@@ -7,10 +7,13 @@ use BalajiDharma\LaravelAdminCore\Data\Permission\PermissionUpdateData;
 
 class PermissionUpdateAction
 {
-    public function handle(PermissionUpdateData $data, Permission $permission): bool
+    public function handle(PermissionUpdateData $data, Permission $permission): Permission
     {
-        return $permission->update([
+        $permission->update([
             'name' => $data->getName(),
         ]);
+        attachCategories($permission, $data->getAdminTags());
+
+        return $permission;
     }
 }

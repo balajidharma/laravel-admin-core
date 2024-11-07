@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\Menu;
 
-use Spatie\LaravelData\Data;
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class MenuUpdateData extends Data
+class MenuUpdateData extends BaseData
 {
     public function __construct(
         public string $name,
@@ -15,7 +15,7 @@ class MenuUpdateData extends Data
     public static function rules(ValidationContext $context): array
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required|max:5',
             'description' => 'max:255',
         ];
     }

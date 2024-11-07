@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\Permission;
 
-use Spatie\LaravelData\Data;
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class PermissionCreateData extends Data
+class PermissionCreateData extends BaseData
 {
     public function __construct(
         public string $name

@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\Role;
 
-use Spatie\LaravelData\Data;
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class RoleUpdateData extends Data
+class RoleUpdateData extends BaseData
 {
     public function __construct(
         public string $name,

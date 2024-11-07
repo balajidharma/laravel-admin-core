@@ -17,6 +17,8 @@ class UserCreateAction
 
         $user->assignRole($data->getRoles());
 
+        attachCategories($user, $data->getAdminTags());
+
         return $user;
     }
 }

@@ -7,9 +7,9 @@ use BalajiDharma\LaravelCategory\Models\Category;
 
 class CategoryUpdateAction
 {
-    public function handle(CategoryUpdateData $data, Category $category)
+    public function handle(CategoryUpdateData $data, Category $category): Category
     {
-        return $category->update([
+        $category->update([
             'name' => $data->getName(),
             'slug' => $data->getSlug(),
             'description' => $data->getDescription(),
@@ -17,5 +17,9 @@ class CategoryUpdateAction
             'parent_id' => $data->getParentId(),
             'weight' => $data->getWeight(),
         ]);
+
+        attachCategories($category, $data->getAdminTags());
+
+        return $category;
     }
 }

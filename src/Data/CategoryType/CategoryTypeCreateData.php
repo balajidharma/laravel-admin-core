@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\CategoryType;
 
-use Spatie\LaravelData\Data;
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class CategoryTypeCreateData extends Data
+class CategoryTypeCreateData extends BaseData
 {
     public function __construct(
         public string $name,

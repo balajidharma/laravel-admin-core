@@ -7,12 +7,16 @@ use BalajiDharma\LaravelCategory\Models\CategoryType;
 
 class CategoryTypeUpdateAction
 {
-    public function handle(CategoryTypeUpdateData $data, CategoryType $categoryType): bool
+    public function handle(CategoryTypeUpdateData $data, CategoryType $categoryType): CategoryType
     {
-        return $categoryType->update([
+        $categoryType->update([
             'name' => $data->getName(),
             'description' => $data->getDescription(),
             'is_flat' => $data->getIsFlat(),
         ]);
+
+        attachCategories($categoryType, $data->getAdminTags());
+
+        return $categoryType;
     }
 }

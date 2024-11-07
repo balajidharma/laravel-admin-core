@@ -53,4 +53,15 @@ return [
     ],
 
     'super_admin' => env('APP_SUPER_ADMIN', 'super-admin'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Tags Settings
+    |--------------------------------------------------------------------------
+    |
+    | admin_tag is default machine name for admin tags.
+    | You can override the value by setting category machine name.
+    |
+    */
+    'tag_name' => env('ADMIN_TAG_MACHINE_NAME', 'admin_tag'),
 ];

@@ -9,10 +9,14 @@ class MenuCreateAction
 {
     public function handle(MenuCreateData $data): Menu
     {
-        return Menu::create([
+        $menu = Menu::create([
             'name' => $data->getName(),
             'machine_name' => $data->getMachineName(),
             'description' => $data->getDescription(),
         ]);
+
+        attachCategories($menu, $data->getAdminTags());
+
+        return $menu;
     }
 }

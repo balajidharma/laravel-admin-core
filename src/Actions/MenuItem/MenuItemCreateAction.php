@@ -9,7 +9,7 @@ class MenuItemCreateAction
 {
     public function handle(MenuItemCreateData $data, Menu $menu)
     {
-        $item = $menu->menuItems()->create([
+        $menuItem = $menu->menuItems()->create([
             'name' => $data->getName(),
             'uri' => $data->getUri(),
             'description' => $data->getDescription(),
@@ -19,8 +19,10 @@ class MenuItemCreateAction
             'icon' => $data->getIcon(),
         ]);
 
-        $item->assignRole(array_map('intval', $data->getRoles()));
+        $menuItem->assignRole(array_map('intval', $data->getRoles()));
 
-        return $item;
+        attachCategories($menuItem, $data->getAdminTags());
+
+        return $menuItem;
     }
 }

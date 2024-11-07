@@ -2,12 +2,12 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\User;
 
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class UserCreateData extends Data
+class UserCreateData extends BaseData
 {
     public function __construct(
         public string $name,

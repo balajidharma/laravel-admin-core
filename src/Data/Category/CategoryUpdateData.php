@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\Category;
 
-use Spatie\LaravelData\Data;
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class CategoryUpdateData extends Data
+class CategoryUpdateData extends BaseData
 {
     public function __construct(
         public string $name,

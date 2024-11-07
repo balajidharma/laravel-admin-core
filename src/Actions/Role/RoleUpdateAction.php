@@ -11,6 +11,7 @@ class RoleUpdateAction
     {
         $role->update(['name' => $data->getName()]);
         $role->syncPermissions($data->getPermissions());
+        attachCategories($role, $data->getAdminTags());
 
         return $role;
     }

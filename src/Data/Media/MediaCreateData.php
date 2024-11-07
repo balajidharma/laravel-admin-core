@@ -2,11 +2,11 @@
 
 namespace BalajiDharma\LaravelAdminCore\Data\Media;
 
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Illuminate\Http\UploadedFile;
-use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
-class MediaCreateData extends Data
+class MediaCreateData extends BaseData
 {
     public function __construct(
         public UploadedFile $file,

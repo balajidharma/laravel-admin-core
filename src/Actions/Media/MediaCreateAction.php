@@ -16,6 +16,9 @@ class MediaCreateAction
 
     public function handle(MediaCreateData $data)
     {
-        return $this->mediaManager->createFromSource($data->getFile(), $data->getType(), $data->getName(), $data->getAlt());
+        $media = $this->mediaManager->createFromSource($data->getFile(), $data->getType(), $data->getName(), $data->getAlt());
+        attachCategories($media, $data->getAdminTags());
+
+        return $media;
     }
 }

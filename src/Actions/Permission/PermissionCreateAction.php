@@ -9,8 +9,11 @@ class PermissionCreateAction
 {
     public function handle(PermissionCreateData $data): Permission
     {
-        return Permission::create([
+        $permission = Permission::create([
             'name' => $data->getName(),
         ]);
+        attachCategories($permission, $data->getAdminTags());
+
+        return $permission;
     }
 }

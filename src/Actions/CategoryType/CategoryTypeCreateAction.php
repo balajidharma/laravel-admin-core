@@ -9,11 +9,15 @@ class CategoryTypeCreateAction
 {
     public function handle(CategoryTypeCreateData $data): CategoryType
     {
-        return CategoryType::create([
+        $categoryType = CategoryType::create([
             'name' => $data->getName(),
             'machine_name' => $data->getMachineName(),
             'description' => $data->getDescription(),
             'is_flat' => $data->getIsFlat(),
         ]);
+
+        attachCategories($categoryType, $data->getAdminTags());
+
+        return $categoryType;
     }
 }
