@@ -15,7 +15,7 @@ class MenuUpdateData extends BaseData
     public static function rules(ValidationContext $context): array
     {
         return [
-            'name' => 'required|max:5',
+            'name' => 'required|max:255',
             'description' => 'max:255',
         ];
     }
