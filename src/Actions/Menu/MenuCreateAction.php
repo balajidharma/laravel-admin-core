@@ -15,7 +15,7 @@ class MenuCreateAction
             'description' => $data->getDescription(),
         ]);
 
-        attachCategories($menu, $data->getAdminTags());
+        syncAdminTags($menu, $data->getAdminTags());
 
         return $menu;
     }

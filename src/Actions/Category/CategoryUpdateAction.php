@@ -18,7 +18,7 @@ class CategoryUpdateAction
             'weight' => $data->getWeight(),
         ]);
 
-        attachCategories($category, $data->getAdminTags());
+        syncAdminTags($category, $data->getAdminTags());
 
         return $category;
     }

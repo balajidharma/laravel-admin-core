@@ -12,7 +12,7 @@ class PermissionUpdateAction
         $permission->update([
             'name' => $data->getName(),
         ]);
-        attachCategories($permission, $data->getAdminTags());
+        syncAdminTags($permission, $data->getAdminTags());
 
         return $permission;
     }

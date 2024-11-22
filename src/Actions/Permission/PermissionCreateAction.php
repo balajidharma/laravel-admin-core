@@ -12,7 +12,7 @@ class PermissionCreateAction
         $permission = Permission::create([
             'name' => $data->getName(),
         ]);
-        attachCategories($permission, $data->getAdminTags());
+        syncAdminTags($permission, $data->getAdminTags());
 
         return $permission;
     }

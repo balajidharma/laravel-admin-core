@@ -21,7 +21,7 @@ class MenuItemUpdateAction
 
         $menuItem->syncRoles($data->getRoles());
 
-        attachCategories($menuItem, $data->getAdminTags());
+        syncAdminTags($menuItem, $data->getAdminTags());
 
         return $menuItem;
     }

@@ -21,7 +21,7 @@ class MenuItemCreateAction
 
         $menuItem->assignRole(array_map('intval', $data->getRoles()));
 
-        attachCategories($menuItem, $data->getAdminTags());
+        syncAdminTags($menuItem, $data->getAdminTags());
 
         return $menuItem;
     }

@@ -56,6 +56,14 @@ class AdminCoreSeeder extends Seeder
             'media create',
             'media edit',
             'media delete',
+            'comment list',
+            'comment create',
+            'comment edit',
+            'comment delete',
+            'thread list',
+            'thread create',
+            'thread edit',
+            'thread delete',
         ];
 
         foreach ($permissions as $permission) {
@@ -158,6 +166,20 @@ class AdminCoreSeeder extends Seeder
                 'weight' => 5,
                 'icon' => 'M9 13V5C9 3.9 9.9 3 11 3H20C21.1 3 22 3.9 22 5V11H18.57L17.29 9.26C17.23 9.17 17.11 9.17 17.05 9.26L15.06 12C15 12.06 14.88 12.07 14.82 12L13.39 10.25C13.33 10.18 13.22 10.18 13.16 10.25L11.05 12.91C10.97 13 11.04 13.15 11.16 13.15H17.5V15H11C9.89 15 9 14.11 9 13M6 22V21H4V22H2V2H4V3H6V2H8.39C7.54 2.74 7 3.8 7 5V13C7 15.21 8.79 17 11 17H15.7C14.67 17.83 14 19.08 14 20.5C14 21.03 14.11 21.53 14.28 22H6M4 7H6V5H4V7M4 11H6V9H4V11M4 15H6V13H4V15M6 19V17H4V19H6M23 13V15H21V20.5C21 21.88 19.88 23 18.5 23S16 21.88 16 20.5 17.12 18 18.5 18C18.86 18 19.19 18.07 19.5 18.21V13H23Z',
             ],
+            [
+                'name' => 'Forum Thread',
+                'uri' => '/<admin>/thread',
+                'enabled' => 1,
+                'weight' => 5,
+                'icon' => 'M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z',
+            ],
+            [
+                'name' => 'Comment',
+                'uri' => '/<admin>/comment',
+                'enabled' => 1,
+                'weight' => 5,
+                'icon' => 'M12,23A1,1 0 0,1 11,22V19H7A2,2 0 0,1 5,17V7A2,2 0 0,1 7,5H21A2,2 0 0,1 23,7V17A2,2 0 0,1 21,19H16.9L13.2,22.71C13,22.89 12.76,23 12.5,23H12M13,17V20.08L16.08,17H21V7H7V17H13M3,15H1V3A2,2 0 0,1 3,1H19V3H3V15M9,9H19V11H9V9M9,13H17V15H9V13Z',
+            ],
         ];
 
         $menu->menuItems()->createMany($menu_items);
@@ -180,6 +202,24 @@ class AdminCoreSeeder extends Seeder
             'name' => 'Admin Tag',
             'machine_name' => 'admin_tag',
             'description' => 'Admin Tags',
+            'is_flat' => true,
+        ]);
+
+        $forumCategoryType =  CategoryType::create([
+            'name' => 'Forum Category',
+            'machine_name' => 'forum_category',
+            'description' => 'Forum Category',
+        ]);
+
+        $forumCategoryType->categories()->create([
+            'name' => 'General',
+            'description' => 'General Forum Category',
+        ]);
+
+        CategoryType::create([
+            'name' => 'Forum Tag',
+            'machine_name' => 'forum_tag',
+            'description' => 'Forum Tags',
             'is_flat' => true,
         ]);
     }

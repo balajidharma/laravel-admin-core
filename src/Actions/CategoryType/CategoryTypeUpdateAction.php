@@ -15,7 +15,7 @@ class CategoryTypeUpdateAction
             'is_flat' => $data->getIsFlat(),
         ]);
 
-        attachCategories($categoryType, $data->getAdminTags());
+        syncAdminTags($categoryType, $data->getAdminTags());
 
         return $categoryType;
     }
