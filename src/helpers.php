@@ -1,14 +1,13 @@
 <?php
 
-if (! function_exists('attachCategories')) {
+if (! function_exists('syncAdminTags')) {
 
-    function attachCategories($model, $tags, $type = null)
+    function syncAdminTags($model, $tags, $type = null)
     {
         if (! $type) {
             $type = config('admin.tag_name');
         }
-        $model->attachCategories($tags, $type);
-
+        $model->syncTags($tags, $type);
     }
 
 }
