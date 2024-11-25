@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use BalajiDharma\LaravelCategory\Models\CategoryType;
 use BalajiDharma\LaravelMenu\Models\Menu;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
@@ -70,32 +71,28 @@ class AdminCoreSeeder extends Seeder
             Permission::create(['name' => $permission]);
         }
 
-        // create roles and assign existing permissions
-        $role1 = Role::create(['name' => 'writer']);
-        $role1->givePermissionTo('admin user');
-        $role1->givePermissionTo('permission list');
-        $role1->givePermissionTo('role list');
-        $role1->givePermissionTo('user list');
-        $role1->givePermissionTo('menu list');
-        $role1->givePermissionTo('menu.item list');
-        $role1->givePermissionTo('category list');
-        $role1->givePermissionTo('category.type list');
-        $role1->givePermissionTo('media list');
+        $role1 = Role::create(['name' => 'super-admin']);
+        // gets all permissions via Gate::before rule; see AuthServiceProvider
 
         $role2 = Role::create(['name' => 'admin']);
         foreach ($permissions as $permission) {
             $role2->givePermissionTo($permission);
         }
 
-        $role3 = Role::create(['name' => 'super-admin']);
-        // gets all permissions via Gate::before rule; see AuthServiceProvider
+        // create roles and assign existing permissions
+        $role3 = Role::create(['name' => 'writer']);
+        foreach ($permissions as $permission) {
+            if (Str::contains($permission, 'list')) {
+                $role3->givePermissionTo($permission);
+            }
+        }
 
         // create demo users
         $user = \App\Models\User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'superadmin@example.com',
         ]);
-        $user->assignRole($role3);
+        $user->assignRole($role1);
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Admin User',
@@ -107,7 +104,7 @@ class AdminCoreSeeder extends Seeder
             'name' => 'Example User',
             'email' => 'test@example.com',
         ]);
-        $user->assignRole($role1);
+        $user->assignRole($role3);
 
         // create menu
         $menu = Menu::create([
