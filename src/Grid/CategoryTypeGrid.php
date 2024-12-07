@@ -96,7 +96,7 @@ class CategoryTypeGrid extends CrudBuilder
                 'label' => __('Created At'),
                 'sortable' => true,
                 'filter' => 'between',
-                'fillable' => false
+                'fillable' => false,
             ],
             [
                 'attribute' => 'updated_at',

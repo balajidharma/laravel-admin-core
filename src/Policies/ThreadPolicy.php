@@ -2,8 +2,8 @@
 
 namespace BalajiDharma\LaravelAdminCore\Policies;
 
-use BalajiDharma\LaravelForum\Models\Thread;
 use App\Models\User;
+use BalajiDharma\LaravelForum\Models\Thread;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ThreadPolicy

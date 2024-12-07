@@ -42,7 +42,7 @@ class MediaGrid extends CrudBuilder
                 'filter' => '=',
                 'filter_options' => media_type_as_options(),
                 'list' => false,
-                'show' => false
+                'show' => false,
             ],
             [
                 'attribute' => 'filename',

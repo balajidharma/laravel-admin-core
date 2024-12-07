@@ -7,7 +7,6 @@ use Spatie\LaravelData\Support\Validation\ValidationContext;
 
 class CommentUpdateData extends BaseData
 {
-
     public function __construct(
         public string $content,
         public ?string $commenter_type,

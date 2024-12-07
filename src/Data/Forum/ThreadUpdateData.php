@@ -7,7 +7,6 @@ use Spatie\LaravelData\Support\Validation\ValidationContext;
 
 class ThreadUpdateData extends BaseData
 {
-
     public function __construct(
         public string $title,
         public ?string $slug,

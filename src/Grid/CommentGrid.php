@@ -4,7 +4,6 @@ namespace BalajiDharma\LaravelAdminCore\Grid;
 
 use BalajiDharma\LaravelComment\Models\Comment;
 use BalajiDharma\LaravelCrud\CrudBuilder;
-use Config;
 
 class CommentGrid extends CrudBuilder
 {
@@ -21,7 +20,7 @@ class CommentGrid extends CrudBuilder
         $statusOptions = [];
         foreach (config('comment.status') as $key => $value) {
             $statusOptions[$value] = __($key);
-        };
+        }
 
         return [
             [
@@ -52,8 +51,8 @@ class CommentGrid extends CrudBuilder
                     return [
                         'field_type' => 'textarea',
                         'attr' => [
-                            'rows' => 5
-                        ]
+                            'rows' => 5,
+                        ],
                     ];
                 },
             ],
@@ -67,7 +66,7 @@ class CommentGrid extends CrudBuilder
                     $commenter_type = [
                         'App\Models\User' => __('User'),
                     ];
-                    
+
                     return [
                         'choices' => $commenter_type,
                         'empty_value' => __('Select an option'),
@@ -100,7 +99,7 @@ class CommentGrid extends CrudBuilder
                     $commentable_type = [
                         'BalajiDharma\LaravelForum\Models\Thread' => __('Thread'),
                     ];
-                    
+
                     return [
                         'choices' => $commentable_type,
                         'empty_value' => __('Select an option'),

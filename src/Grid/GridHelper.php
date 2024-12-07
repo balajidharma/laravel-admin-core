@@ -26,7 +26,7 @@ class GridHelper
                 } else {
                     $value = $model ? collect($model->getCategoriesByType($tagName)->get())->pluck('name')->implode(', ') : '';
                 }
-        
+
                 return [
                     'field_type' => 'text',
                     'value' => $value,

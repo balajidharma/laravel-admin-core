@@ -203,7 +203,7 @@ class AdminCoreSeeder extends Seeder
             'is_flat' => true,
         ]);
 
-        $forumCategoryType =  CategoryType::create([
+        $forumCategoryType = CategoryType::create([
             'name' => 'Forum Category',
             'machine_name' => 'forum_category',
             'description' => 'Forum Category',

@@ -2,8 +2,8 @@
 
 namespace BalajiDharma\LaravelAdminCore\Policies;
 
-use BalajiDharma\LaravelComment\Models\Comment;
 use App\Models\User;
+use BalajiDharma\LaravelComment\Models\Comment;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CommentPolicy

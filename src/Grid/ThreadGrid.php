@@ -2,10 +2,10 @@
 
 namespace BalajiDharma\LaravelAdminCore\Grid;
 
-use BalajiDharma\LaravelForum\Models\Thread;
-use BalajiDharma\LaravelCategory\Models\CategoryType;
 use BalajiDharma\LaravelCategory\Models\Category;
+use BalajiDharma\LaravelCategory\Models\CategoryType;
 use BalajiDharma\LaravelCrud\CrudBuilder;
+use BalajiDharma\LaravelForum\Models\Thread;
 
 class ThreadGrid extends CrudBuilder
 {
@@ -21,6 +21,7 @@ class ThreadGrid extends CrudBuilder
     {
         $type = CategoryType::where('machine_name', config('forum.category_name'))->first();
         $categories = $type ? Category::selectOptions($type->id) : [];
+
         return [
             [
                 'attribute' => 'id',
@@ -92,8 +93,8 @@ class ThreadGrid extends CrudBuilder
                     return [
                         'field_type' => 'textarea',
                         'attr' => [
-                            'rows' => 5
-                        ]
+                            'rows' => 5,
+                        ],
                     ];
                 },
             ],
@@ -107,7 +108,7 @@ class ThreadGrid extends CrudBuilder
                     $author_type = [
                         'App\Models\User' => __('User'),
                     ];
-                    
+
                     return [
                         'choices' => $author_type,
                         'empty_value' => __('Select an option'),
@@ -143,7 +144,7 @@ class ThreadGrid extends CrudBuilder
                     $status = [];
                     foreach (config('forum.status') as $key => $value) {
                         $status[$value] = __($key);
-                    };
+                    }
 
                     return [
                         'choices' => $status,
