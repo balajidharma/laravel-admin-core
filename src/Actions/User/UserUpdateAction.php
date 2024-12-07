@@ -11,6 +11,7 @@ class UserUpdateAction
     {
         $user->update([
             'name' => $data->getName(),
+            'username' => $data->getUsername(),
             'email' => $data->getEamil(),
         ]);
 
@@ -22,7 +23,7 @@ class UserUpdateAction
 
         $user->syncRoles($data->getRoles());
 
-        attachCategories($user, $data->getAdminTags());
+        syncAdminTags($user, $data->getAdminTags());
 
         return $user;
     }

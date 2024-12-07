@@ -12,6 +12,7 @@ class UserCreateData extends BaseData
     public function __construct(
         public string $name,
         public string $email,
+        public string $username,
         public ?string $password,
         public ?array $roles
     ) {}
@@ -20,6 +21,7 @@ class UserCreateData extends BaseData
     {
         return [
             'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
@@ -28,6 +30,11 @@ class UserCreateData extends BaseData
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
     }
 
     public function getEamil(): string

@@ -11,13 +11,14 @@ class UserCreateAction
     {
         $user = User::create([
             'name' => $data->getName(),
+            'username' => $data->getUsername(),
             'email' => $data->getEamil(),
             'password' => $data->getHashPassword(),
         ]);
 
         $user->assignRole($data->getRoles());
 
-        attachCategories($user, $data->getAdminTags());
+        syncAdminTags($user, $data->getAdminTags());
 
         return $user;
     }
