@@ -12,7 +12,7 @@ class CommentCreateData extends BaseData
         public ?string $commenter_type,
         public ?int $commenter_id,
         public ?string $commentable_type,
-        public ?int $commentable_id,
+        public ?string $commentable_id,
         public ?int $parent_id,
         public ?int $status
     ) {}
@@ -34,7 +34,7 @@ class CommentCreateData extends BaseData
         return $this->commenter_type;
     }
 
-    public function getCommenterId(): ?string
+    public function getCommenterId(): ?int
     {
         return $this->commenter_id;
     }
