@@ -65,6 +65,8 @@ class AdminCoreSeeder extends Seeder
             'thread create',
             'thread edit',
             'thread delete',
+            'activitylog list',
+            'activitylog delete',
         ];
 
         foreach ($permissions as $permission) {
@@ -168,15 +170,22 @@ class AdminCoreSeeder extends Seeder
                 'name' => 'Forum Thread',
                 'uri' => '/<admin>/thread',
                 'enabled' => 1,
-                'weight' => 5,
+                'weight' => 6,
                 'icon' => 'M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z',
             ],
             [
                 'name' => 'Comment',
                 'uri' => '/<admin>/comment',
                 'enabled' => 1,
-                'weight' => 5,
+                'weight' => 7,
                 'icon' => 'M12,23A1,1 0 0,1 11,22V19H7A2,2 0 0,1 5,17V7A2,2 0 0,1 7,5H21A2,2 0 0,1 23,7V17A2,2 0 0,1 21,19H16.9L13.2,22.71C13,22.89 12.76,23 12.5,23H12M13,17V20.08L16.08,17H21V7H7V17H13M3,15H1V3A2,2 0 0,1 3,1H19V3H3V15M9,9H19V11H9V9M9,13H17V15H9V13Z',
+            ],
+            [
+                'name' => 'Activity Log',
+                'uri' => '/<admin>/activitylog',
+                'enabled' => 1,
+                'weight' => 8,
+                'icon' => 'M5.314 1.256a.75.75 0 01-.07 1.058L3.889 3.5l1.355 1.186a.75.75 0 11-.988 1.128l-2-1.75a.75.75 0 010-1.128l2-1.75a.75.75 0 011.058.07zM7.186 1.256a.75.75 0 00.07 1.058L8.611 3.5 7.256 4.686a.75.75 0 10.988 1.128l2-1.75a.75.75 0 000-1.128l-2-1.75a.75.75 0 00-1.058.07zM2.75 7.5a.75.75 0 000 1.5h10.5a.75.75 0 000-1.5H2.75zM2 11.25a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75zM2.75 13.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z',
             ],
         ];
 
