@@ -18,6 +18,7 @@
         "balajidharma/laravel-media-manager": "^1.0",
         "balajidharma/laravel-comment": "^1.0",
         "balajidharma/laravel-forum": "^1.0",
+        "balajidharma/laravel-viewable": "^1.0",
         "diglactic/laravel-breadcrumbs":"^9.0"
     },
     "autoload": {

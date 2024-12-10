@@ -7,9 +7,9 @@ use BalajiDharma\LaravelCrud\CrudBuilder;
 
 class ActivityLogGrid extends CrudBuilder
 {
-    public $title = 'ActivityLogs';
+    public $title = 'Activity Logs';
 
-    public $description = 'ActivityLogs';
+    public $description = 'Activity Logs';
 
     public $model = Activity::class;
 
