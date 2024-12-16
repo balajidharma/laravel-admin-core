@@ -4,16 +4,19 @@ namespace BalajiDharma\LaravelAdminCore\Data\Category;
 
 use BalajiDharma\LaravelAdminCore\Data\BaseData;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
+use Illuminate\Http\UploadedFile;
 
 class CategoryUpdateData extends BaseData
 {
     public function __construct(
+        public ?UploadedFile $image,
         public string $name,
         public ?string $slug,
         public ?string $description,
         public ?bool $enabled,
         public ?int $parent_id,
         public ?int $weight = 0,
+        public ?string $color = null,
     ) {}
 
     public static function rules(ValidationContext $context): array
@@ -52,5 +55,15 @@ class CategoryUpdateData extends BaseData
     public function getWeight(): ?int
     {
         return $this->weight;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function getImage(): ?UploadedFile
+    {
+        return $this->image;
     }
 }

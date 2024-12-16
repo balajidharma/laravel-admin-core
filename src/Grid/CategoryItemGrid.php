@@ -87,6 +87,48 @@ class CategoryItemGrid extends CrudBuilder
                 },
                 'list' => false,
             ],
+            [
+                'attribute' => 'color',
+                'label' => __('Color'),
+                'type' => 'color',
+                'value' => function ($model) {
+                    return $model->color ? '<span class="badge w-10" style="background-color: '.$model->color.'">&nbsp;&nbsp;&nbsp;&nbsp;</span>' : '';
+                },
+                'form_options' => function ($model) {
+                    return [
+                        'value' => $model->color ?? '#ff0000',
+                    ];
+                },
+            ],
+            [
+                'attribute' => 'image',
+                'label' => __('Image'),
+                'fillable' => true,
+                'type' => 'file',
+                'value' => function ($model) {
+                    $media = $model->getMedia('thumbnail')->first();
+                    if (! $media) {
+                        return '';
+                    }
+                    if ($media->aggregate_type != 'image') {
+                        $file = media_type_icon($media);
+                    } else {
+                        $file = '<image src="'. asset('storage/'. $media->getDiskPath()) .'" alt="'.$media->alt.'">';
+                    }
+
+                    return '<div class="avatar"><div class="w-32 rounded">'.$file.'</div><div>';
+                },
+                'form_options' => function ($model) {
+                    return [
+                        'attr' => [
+                            'accept' => 'image/*',
+                        ],
+                        'help_block' => [
+                            'text' => 'The image must be a PNG, JPG, or GIF, and less than 2MB.',
+                        ],
+                    ];
+                },
+            ],
             GridHelper::getTagsField('admin_tags', config('admin.tag_name')),
             [
                 'attribute' => 'created_at',
