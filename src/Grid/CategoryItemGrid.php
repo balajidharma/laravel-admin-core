@@ -106,17 +106,11 @@ class CategoryItemGrid extends CrudBuilder
                 'fillable' => true,
                 'type' => 'file',
                 'value' => function ($model) {
-                    $media = $model->getMedia('thumbnail')->first();
+                    $media = $model->firstMedia('thumbnail');
                     if (! $media) {
                         return '';
                     }
-                    if ($media->aggregate_type != 'image') {
-                        $file = media_type_icon($media);
-                    } else {
-                        $file = '<image src="'. asset('storage/'. $media->getDiskPath()) .'" alt="'.$media->alt.'">';
-                    }
-
-                    return '<div class="avatar"><div class="w-32 rounded">'.$file.'</div><div>';
+                    return '<div class="avatar"><div class="w-32 rounded"><image src="'. asset('storage/'. $media->getDiskPath()) .'" alt="'.$media->alt.'"></div><div>';
                 },
                 'form_options' => function ($model) {
                     return [
