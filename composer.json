@@ -19,6 +19,7 @@
         "balajidharma/laravel-comment": "^1.0",
         "balajidharma/laravel-forum": "^1.0",
         "balajidharma/laravel-viewable": "^1.0",
+        "balajidharma/laravel-attributes": "^1.0",
         "diglactic/laravel-breadcrumbs":"^9.0",
         "blaspsoft/blasp":"^1.2"
     },
