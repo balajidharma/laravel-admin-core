@@ -17,7 +17,7 @@ class AttributeGrid extends CrudBuilder
 
     public function columns()
     {
-        $type = collect(config('attributes.data_types'))->pluck('type', 'type')->toArray();
+        $type = collect(config('attributes.data_types'))->pluck('name', 'name')->toArray();
 
         return [
             [
