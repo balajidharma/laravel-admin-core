@@ -78,6 +78,12 @@ class AttributeGrid extends CrudBuilder
                 'sortable' => true,
                 'filter' => 'like',
                 'searchable' => true,
+                'list' => [
+                    'class' => 'BalajiDharma\LaravelCrud\Column\LinkColumn',
+                    'route' => 'admin.attribute.show',
+                    'route_params' => ['attribute' => 'id'],
+                    'attr' => ['class' => 'link link-primary'],
+                ],
             ],
             [
                 'attribute' => 'value',
@@ -85,6 +91,11 @@ class AttributeGrid extends CrudBuilder
                 'sortable' => true,
                 'filter' => 'like',
                 'searchable' => true,
+            ],
+            [
+                'attribute' => 'weight',
+                'label' => __('Weight'),
+                'type' => 'number',
             ],
             [
                 'attribute' => 'created_at',

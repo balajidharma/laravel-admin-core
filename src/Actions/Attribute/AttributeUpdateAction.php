@@ -14,6 +14,7 @@ class AttributeUpdateAction
                 'data_type' => $data->getDataType(),
                 'name' => $data->getName(),
                 'value' => $data->getValue(),
+                'weight' => $data->getWeight(),
                 'attributable_type' => $data->getAttributableType(),
                 'attributable_id' => $data->getAttributableId(),
             ]

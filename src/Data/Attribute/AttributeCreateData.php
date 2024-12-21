@@ -12,6 +12,7 @@ class AttributeCreateData extends BaseData
         public string $data_type,
         public string $name,
         public ?string $value,
+        public ?int $weight,
         public string $attributable_type,
         public int $attributable_id,
     ) {}
@@ -48,6 +49,11 @@ class AttributeCreateData extends BaseData
     public function getValue(): ?string
     {
         return $this->value;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
     }
 
     public function getAttributableType(): string
