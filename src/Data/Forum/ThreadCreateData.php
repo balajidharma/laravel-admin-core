@@ -22,7 +22,7 @@ class ThreadCreateData extends BaseData
         return [
             'category_id' => 'required',
             'title' => 'required|max:255',
-            'content' => 'required',
+            'content' => 'required|blasp_check',
         ];
     }
 

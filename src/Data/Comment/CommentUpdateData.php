@@ -20,7 +20,7 @@ class CommentUpdateData extends BaseData
     public static function rules(ValidationContext $context): array
     {
         return [
-            'content' => 'required',
+            'content' => 'required|blasp_check',
         ];
     }
 
