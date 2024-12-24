@@ -2,8 +2,8 @@
 
 namespace BalajiDharma\LaravelAdminCore\Grid;
 
-use Spatie\Activitylog\Models\Activity;
 use BalajiDharma\LaravelCrud\CrudBuilder;
+use Spatie\Activitylog\Models\Activity;
 
 class ActivityLogGrid extends CrudBuilder
 {
@@ -19,7 +19,7 @@ class ActivityLogGrid extends CrudBuilder
         'create' => false,
         'store' => false,
         'edit' => false,
-        'update' => false
+        'update' => false,
     ];
 
     public function columns()
@@ -69,7 +69,7 @@ class ActivityLogGrid extends CrudBuilder
                 'searchable' => true,
                 'value' => function ($model) {
                     return $model->causer->username;
-                }
+                },
             ],
             [
                 'attribute' => 'properties',
@@ -77,12 +77,13 @@ class ActivityLogGrid extends CrudBuilder
                 'list' => false,
                 'value' => function ($model) {
                     return $this->activityProperties($model->properties);
-                }
+                },
             ],
         ];
     }
 
-    function activityProperties($data) {
+    public function activityProperties($data)
+    {
         $html = '<table class="table">
             <thead>
                 <tr>
@@ -97,15 +98,15 @@ class ActivityLogGrid extends CrudBuilder
         foreach ($data['attributes'] as $key => $Value) {
             if (isset($data['attributes'][$key])) {
                 $html .= '<tr>
-                    <td>' . htmlspecialchars(ucfirst($key)) . '</td>
-                    <td>' . htmlspecialchars($data['old'][$key] ?? '') . '</td>
-                    <td>' . htmlspecialchars($data['attributes'][$key]) . '</td>
+                    <td>'.htmlspecialchars(ucfirst($key)).'</td>
+                    <td>'.htmlspecialchars($data['old'][$key] ?? '').'</td>
+                    <td>'.htmlspecialchars($data['attributes'][$key]).'</td>
                 </tr>';
             }
         }
 
         $html .= '</tbody></table>';
+
         return $html;
     }
-
 }

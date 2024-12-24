@@ -110,7 +110,8 @@ class CategoryItemGrid extends CrudBuilder
                     if (! $media) {
                         return '';
                     }
-                    return '<div class="avatar"><div class="w-32 rounded"><image src="'. asset('storage/'. $media->getDiskPath()) .'" alt="'.$media->alt.'"></div><div>';
+
+                    return '<div class="avatar"><div class="w-32 rounded"><image src="'.asset('storage/'.$media->getDiskPath()).'" alt="'.$media->alt.'"></div><div>';
                 },
                 'form_options' => function ($model) {
                     return [

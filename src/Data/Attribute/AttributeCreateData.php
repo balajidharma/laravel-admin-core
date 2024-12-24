@@ -3,8 +3,8 @@
 namespace BalajiDharma\LaravelAdminCore\Data\Attribute;
 
 use BalajiDharma\LaravelAdminCore\Data\BaseData;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Illuminate\Validation\Rule;
+use Spatie\LaravelData\Support\Validation\ValidationContext;
 
 class AttributeCreateData extends BaseData
 {
@@ -28,8 +28,8 @@ class AttributeCreateData extends BaseData
                 Rule::unique(config('attributes.table_names.attributes', 'attributes'))
                     ->where(function ($query) {
                         return $query->where('attributable_type', request()->attributable_type)
-                                   ->where('attributable_id', request()->attributable_id);
-                    })
+                            ->where('attributable_id', request()->attributable_id);
+                    }),
             ],
             'attributable_type' => 'required',
             'attributable_id' => 'required',
@@ -65,5 +65,4 @@ class AttributeCreateData extends BaseData
     {
         return $this->attributable_id;
     }
-
 }

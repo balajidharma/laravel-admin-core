@@ -3,8 +3,8 @@
 namespace BalajiDharma\LaravelAdminCore\Data\Category;
 
 use BalajiDharma\LaravelAdminCore\Data\BaseData;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Illuminate\Http\UploadedFile;
+use Spatie\LaravelData\Support\Validation\ValidationContext;
 
 class CategoryCreateData extends BaseData
 {

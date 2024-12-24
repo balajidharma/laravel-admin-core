@@ -3,8 +3,8 @@
 namespace BalajiDharma\LaravelAdminCore\Data\Attribute;
 
 use BalajiDharma\LaravelAdminCore\Data\BaseData;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Illuminate\Validation\Rule;
+use Spatie\LaravelData\Support\Validation\ValidationContext;
 
 class AttributeUpdateData extends BaseData
 {
@@ -20,6 +20,7 @@ class AttributeUpdateData extends BaseData
     public static function rules(ValidationContext $context): array
     {
         $id = request()->route('attribute')->id;
+
         return [
             'data_type' => 'required',
             'name' => [
@@ -29,9 +30,9 @@ class AttributeUpdateData extends BaseData
                 Rule::unique(config('attributes.table_names.attributes', 'attributes'))
                     ->where(function ($query) {
                         return $query->where('attributable_type', request()->attributable_type)
-                                   ->where('attributable_id', request()->attributable_id);
+                            ->where('attributable_id', request()->attributable_id);
                     })
-                    ->ignore($id)
+                    ->ignore($id),
             ],
             'attributable_type' => 'required',
             'attributable_id' => 'required',
@@ -67,5 +68,4 @@ class AttributeUpdateData extends BaseData
     {
         return $this->attributable_id;
     }
-
 }
