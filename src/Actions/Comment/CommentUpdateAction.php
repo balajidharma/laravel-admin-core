@@ -7,9 +7,9 @@ use BalajiDharma\LaravelComment\Models\Comment;
 
 class CommentUpdateAction
 {
-    public function handle(CommentUpdateData $data, Comment $comment): Comment
+    public function handle(CommentUpdateData $data, Comment $comment)
     {
-        $comment->update([
+        return $comment->update([
             'content' => $data->getContent(),
             'commenter_type' => $data->getCommenterType(),
             'commenter_id' => $data->getCommenterId(),
@@ -18,7 +18,5 @@ class CommentUpdateAction
             'parent_id' => $data->getParentId(),
             'status' => $data->getStatus(),
         ]);
-
-        return $comment;
     }
 }
