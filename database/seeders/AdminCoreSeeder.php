@@ -71,6 +71,10 @@ class AdminCoreSeeder extends Seeder
             'attribute create',
             'attribute edit',
             'attribute delete',
+            'reaction list',
+            'reaction create',
+            'reaction edit',
+            'reaction delete',
         ];
 
         foreach ($permissions as $permission) {
