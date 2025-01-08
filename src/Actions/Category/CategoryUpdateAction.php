@@ -30,7 +30,10 @@ class CategoryUpdateAction
         if ($data->getImage()) {
             $media = $category->getMedia('thumbnail')->first();
             $image = $this->mediaManager->createFromSource($data->getImage(), 'default', null, null, $media);
-            $category->attachMedia($image, 'thumbnail');
+            if (!$media)
+            {
+                $category->attachMedia($image, 'thumbnail');
+            }
         }
         syncAdminTags($category, $data->getAdminTags());
 

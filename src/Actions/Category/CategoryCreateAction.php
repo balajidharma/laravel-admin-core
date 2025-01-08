@@ -28,8 +28,7 @@ class CategoryCreateAction
         ]);
 
         if ($data->getImage()) {
-            $media = $category->getMedia('thumbnail')->first();
-            $image = $this->mediaManager->createFromSource($data->getImage(), 'default', null, null, $media);
+            $image = $this->mediaManager->createFromSource($data->getImage(), 'default', null, null);
             $category->attachMedia($image, 'thumbnail');
         }
 
