@@ -81,7 +81,7 @@ class MediaGrid extends CrudBuilder
                     if ($model->aggregate_type != 'image') {
                         $file = media_type_icon($model);
                     } else {
-                        $file = '<image src="'.asset('storage/'.$model->getDiskPath()).'" alt="'.$model->alt.'">';
+                        $file = '<image src="'.$model->getMediaUrl().'" alt="'.$model->alt.'">';
                     }
 
                     return '<div class="avatar"><div class="w-32 rounded">'.$file.'</div><div>';
