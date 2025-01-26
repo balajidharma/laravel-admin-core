@@ -20,6 +20,16 @@ class ReactionGrid extends CrudBuilder
 
         $reaction_types = collect(config('reaction.reaction_types'))->pluck('name', 'name')->all();
 
+        $reactorOptions = [];
+        foreach (config('admin.reaction.reactor_types') as $key => $value) {
+            $reactorOptions[$value] = __($key);
+        }
+
+        $reactableOptions = [];
+        foreach (config('admin.reaction.reactable_types') as $key => $value) {
+            $reactableOptions[$value] = __($key);
+        }
+
         return [
             [
                 'attribute' => 'id',
@@ -67,13 +77,9 @@ class ReactionGrid extends CrudBuilder
                 'type' => 'select',
                 'list' => true,
                 'show' => true,
-                'form_options' => function ($model) {
-                    $reactor_type = [
-                        'App\Models\User' => __('User'),
-                    ];
-
+                'form_options' => function ($model) use ($reactorOptions) {
                     return [
-                        'choices' => $reactor_type,
+                        'choices' => $reactorOptions,
                         'empty_value' => __('Select an option'),
                         'default_value' => $model ? $model->reactor_type : null,
                     ];
@@ -100,13 +106,9 @@ class ReactionGrid extends CrudBuilder
                 'label' => __('Reactable Type'),
                 'type' => 'select',
                 'list' => true,
-                'form_options' => function ($model) {
-                    $reactable_type = [
-                        'BalajiDharma\LaravelForum\Models\Thread' => __('Thread'),
-                    ];
-
+                'form_options' => function ($model) use ($reactableOptions) {
                     return [
-                        'choices' => $reactable_type,
+                        'choices' => $reactableOptions,
                         'empty_value' => __('Select an option'),
                         'default_value' => $model ? $model->reactable_type : null,
                     ];

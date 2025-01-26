@@ -79,4 +79,13 @@ return [
             'Thread' => \BalajiDharma\LaravelForum\Models\Thread::class,
         ],
     ],
+
+    'reaction' => [
+        'reactor_types' => [
+            'User' => \App\Models\User::class,
+        ],
+        'reactable_types' => [
+            'Thread' => \BalajiDharma\LaravelForum\Models\Thread::class,
+        ],
+    ],
 ];
