@@ -64,4 +64,19 @@ return [
     |
     */
     'tag_name' => env('ADMIN_TAG_MACHINE_NAME', 'admin_tag'),
+
+    'comment' => [
+        'commenter_types' => [
+            'User' => \App\Models\User::class,
+        ],
+        'commentable_types' => [
+            'Thread' => \BalajiDharma\LaravelForum\Models\Thread::class,
+        ],
+    ],
+
+    'attributes' => [
+        'attributable_types' => [
+            'Thread' => \BalajiDharma\LaravelForum\Models\Thread::class,
+        ],
+    ],
 ];

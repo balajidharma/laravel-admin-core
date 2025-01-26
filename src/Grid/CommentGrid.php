@@ -22,6 +22,16 @@ class CommentGrid extends CrudBuilder
             $statusOptions[$value] = __($key);
         }
 
+        $commenterOptions = [];
+        foreach (config('admin.comment.commenter_types') as $key => $value) {
+            $commenterOptions[$value] = __($key);
+        }
+
+        $commentableOptions = [];
+        foreach (config('admin.comment.commentable_types') as $key => $value) {
+            $commentableOptions[$value] = __($key);
+        }
+
         return [
             [
                 'attribute' => 'id',
@@ -95,13 +105,9 @@ class CommentGrid extends CrudBuilder
                 'label' => __('Commentable Type'),
                 'type' => 'select',
                 'list' => false,
-                'form_options' => function ($model) {
-                    $commentable_type = [
-                        'BalajiDharma\LaravelForum\Models\Thread' => __('Thread'),
-                    ];
-
+                'form_options' => function ($model) use ($commentableOptions) {
                     return [
-                        'choices' => $commentable_type,
+                        'choices' => $commentableOptions,
                         'empty_value' => __('Select an option'),
                         'default_value' => $model ? $model->commentable_type : null,
                     ];

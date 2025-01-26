@@ -19,6 +19,11 @@ class AttributeGrid extends CrudBuilder
     {
         $type = collect(config('attributes.data_types'))->pluck('name', 'name')->toArray();
 
+        $attributableOptions = [];
+        foreach (config('admin.attributes.attributable_types') as $key => $value) {
+            $attributableOptions[$value] = $value;
+        }
+
         return [
             [
                 'attribute' => 'id',
@@ -37,13 +42,9 @@ class AttributeGrid extends CrudBuilder
                 'label' => __('Attributable Type'),
                 'type' => 'select',
                 'list' => false,
-                'form_options' => function ($model) {
-                    $attributable_type = [
-                        'BalajiDharma\LaravelForum\Models\Thread' => __('Thread'),
-                    ];
-
+                'form_options' => function ($model) use ($attributableOptions) {
                     return [
-                        'choices' => $attributable_type,
+                        'choices' => $attributableOptions,
                         'empty_value' => __('Select an option'),
                         'default_value' => $model ? $model->attributable_type : null,
                     ];
