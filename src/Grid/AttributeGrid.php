@@ -21,7 +21,7 @@ class AttributeGrid extends CrudBuilder
 
         $attributableOptions = [];
         foreach (config('admin.attributes.attributable_types') as $key => $value) {
-            $attributableOptions[$value] = $value;
+            $attributableOptions[$value] = __($key);
         }
 
         return [
