@@ -78,19 +78,19 @@ class AdminCoreSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
-        $role1 = Role::create(['name' => 'super-admin']);
+        $role1 = Role::firstOrCreate(['name' => 'super-admin']);
         // gets all permissions via Gate::before rule; see AuthServiceProvider
 
-        $role2 = Role::create(['name' => 'admin']);
+        $role2 = Role::firstOrCreate(['name' => 'admin']);
         foreach ($permissions as $permission) {
             $role2->givePermissionTo($permission);
         }
 
         // create roles and assign existing permissions
-        $role3 = Role::create(['name' => 'writer']);
+        $role3 = Role::firstOrCreate(['name' => 'writer']);
         $role3->givePermissionTo('admin user');
         foreach ($permissions as $permission) {
             if (Str::contains($permission, 'list')) {
@@ -99,30 +99,41 @@ class AdminCoreSeeder extends Seeder
         }
 
         // create demo users
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@example.com',
-        ]);
+        $user = \App\Models\User::firstOrCreate(
+            ['email' => 'superadmin@example.com'],
+            array_merge(\App\Models\User::factory()->raw(), [
+                'name' => 'Super Admin',
+                'email' => 'superadmin@example.com'
+            ])
+        );
         $user->assignRole($role1);
 
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-        ]);
+        $user = \App\Models\User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            array_merge(\App\Models\User::factory()->raw(), [
+                'name' => 'Admin User',
+                'email' => 'admin@example.com'
+            ])
+        );
         $user->assignRole($role2);
 
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Example User',
-            'email' => 'test@example.com',
-        ]);
+        $user = \App\Models\User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            array_merge(\App\Models\User::factory()->raw(), [
+                'name' => 'Example User',
+                'email' => 'test@example.com'
+            ])
+        );
         $user->assignRole($role3);
 
         // create menu
-        $menu = Menu::create([
-            'name' => 'Admin',
-            'machine_name' => 'admin',
-            'description' => 'Admin Menu',
-        ]);
+        $menu = Menu::firstOrCreate(
+            ['machine_name' => 'admin'],
+            [
+                'name' => 'Admin',
+                'description' => 'Admin Menu',
+            ]
+        );
 
         $menu_items = [
             [
@@ -211,45 +222,59 @@ class AdminCoreSeeder extends Seeder
             ],
         ];
 
-        $menu->menuItems()->createMany($menu_items);
+        foreach ($menu_items as $item) {
+            $menu->menuItems()->updateOrCreate(
+                ['name' => $item['name']],
+                $item
+            );
+        }
 
-        // create category type
-        CategoryType::create([
-            'name' => 'Category',
-            'machine_name' => 'category',
-            'description' => 'Main Category',
-        ]);
+        $category_types = [
+            [
+                'name' => 'Category',
+                'machine_name' => 'category',
+                'description' => 'Main Category',
+            ],
+            [
+                'name' => 'Tag',
+                'machine_name' => 'tag',
+                'description' => 'Site Tags',
+                'is_flat' => true,
+            ],
+            [
+                'name' => 'Admin Tag',
+                'machine_name' => 'admin_tag',
+                'description' => 'Admin Tags',
+                'is_flat' => true,
+            ],
+            [
+                'name' => 'Forum Category',
+                'machine_name' => 'forum_category',
+                'description' => 'Forum Category',
+            ],
+            [
+                'name' => 'Forum Tag',
+                'machine_name' => 'forum_tag',
+                'description' => 'Forum Tags',
+                'is_flat' => true,
+            ]
+        ];
 
-        CategoryType::create([
-            'name' => 'Tag',
-            'machine_name' => 'tag',
-            'description' => 'Site Tags',
-            'is_flat' => true,
-        ]);
+        foreach ($category_types as $category_type) {
+            CategoryType::updateOrCreate(
+                ['machine_name' => $category_type['machine_name']],
+                $category_type
+            );
+        }
 
-        CategoryType::create([
-            'name' => 'Admin Tag',
-            'machine_name' => 'admin_tag',
-            'description' => 'Admin Tags',
-            'is_flat' => true,
-        ]);
+        $forumCategoryType = CategoryType::firstWhere(['machine_name' => 'forum_category']);
 
-        $forumCategoryType = CategoryType::create([
-            'name' => 'Forum Category',
-            'machine_name' => 'forum_category',
-            'description' => 'Forum Category',
-        ]);
-
-        $forumCategoryType->categories()->create([
-            'name' => 'General',
-            'description' => 'General Forum Category',
-        ]);
-
-        CategoryType::create([
-            'name' => 'Forum Tag',
-            'machine_name' => 'forum_tag',
-            'description' => 'Forum Tags',
-            'is_flat' => true,
-        ]);
+        $forumCategoryType->categories()->updateOrCreate(
+            ['name' => 'General'],
+            [
+                'description' => 'General Forum Category',
+                'name' => 'General'
+            ]
+        );
     }
 }
