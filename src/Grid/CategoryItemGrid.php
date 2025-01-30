@@ -111,7 +111,7 @@ class CategoryItemGrid extends CrudBuilder
                         return '';
                     }
 
-                    return '<div class="avatar"><div class="w-32 rounded"><image src="'.$model->getMediaUrl().'" alt="'.$media->alt.'"></div><div>';
+                    return '<div class="avatar"><div class="w-32 rounded"><image src="'.$media->getMediaUrl().'" alt="'.$media->alt.'"></div><div>';
                 },
                 'form_options' => function ($model) {
                     return [
