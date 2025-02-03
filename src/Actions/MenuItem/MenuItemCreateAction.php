@@ -19,7 +19,7 @@ class MenuItemCreateAction
             'icon' => $data->getIcon(),
         ]);
 
-        $menuItem->assignRole(array_map('intval', $data->getRoles()));
+        $menuItem->assignRole($data->getRoles());
 
         syncAdminTags($menuItem, $data->getAdminTags());
 
