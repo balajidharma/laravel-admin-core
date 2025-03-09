@@ -120,6 +120,10 @@ class ReactionGrid extends CrudBuilder
                 'list' => false,
             ],
             [
+                'attribute' => 'comment',
+                'label' => __('Comment'),
+            ],
+            [
                 'attribute' => 'created_at',
                 'sortable' => true,
             ],
