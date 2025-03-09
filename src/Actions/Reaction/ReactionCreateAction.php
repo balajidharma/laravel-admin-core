@@ -10,13 +10,14 @@ class ReactionCreateAction
     public function handle(ReactionCreateData $data)
     {
         return Reaction::create([
+            'reaction_name' => $data->getReactionName(),
             'reaction_type' => $data->getReactionType(),
-            'reaction_id' => $data->getReactionName(),
             'rate' => $data->getRate(),
             'reactor_type' => $data->getReactorType(),
             'reactor_id' => $data->getReactorId(),
             'reactable_type' => $data->getReactableType(),
             'reactable_id' => $data->getReactableId(),
+            'comment' => $data->getComment(),
         ]);
     }
 }

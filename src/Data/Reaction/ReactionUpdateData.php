@@ -15,6 +15,7 @@ class ReactionUpdateData extends BaseData
         public ?int $reactor_id,
         public ?string $reactable_type,
         public ?int $reactable_id,
+        public ?string $comment
     ) {}
 
     public static function rules(ValidationContext $context): array
@@ -26,6 +27,7 @@ class ReactionUpdateData extends BaseData
             'reactor_id' => 'required',
             'reactable_type' => 'required',
             'reactable_id' => 'required',
+            'comment' => 'max:255',
         ];
     }
 
@@ -62,5 +64,10 @@ class ReactionUpdateData extends BaseData
     public function getReactableId(): ?int
     {
         return $this->reactable_id;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
     }
 }
