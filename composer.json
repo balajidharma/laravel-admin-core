@@ -21,7 +21,7 @@
         "balajidharma/laravel-viewable": "^1.0",
         "balajidharma/laravel-attributes": "^1.0",
         "balajidharma/laravel-reaction":"^1.0",
-        "diglactic/laravel-breadcrumbs":"^9.0",
+        "diglactic/laravel-breadcrumbs":"^10.0",
         "blaspsoft/blasp":"^1.2"
     },
     "autoload": {
