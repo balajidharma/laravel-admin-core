@@ -86,6 +86,7 @@ return [
         ],
         'reactable_types' => [
             'Thread' => \BalajiDharma\LaravelForum\Models\Thread::class,
+            'Comment' => \BalajiDharma\LaravelComment\Models\Comment::class,
         ],
     ],
 ];

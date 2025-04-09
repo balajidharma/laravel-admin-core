@@ -84,6 +84,10 @@ class ActivityLogGrid extends CrudBuilder
 
     public function activityProperties($data)
     {
+        if (!isset($data['attributes'])) {
+            return $data;
+        }
+
         $html = '<table class="table">
             <thead>
                 <tr>
