@@ -81,6 +81,11 @@ class UserGrid extends CrudBuilder
                 'type' => 'password',
             ],
             [
+                'attribute' => 'email_verified_at',
+                'label' => __('Email Verified At'),
+                'sortable' => true,
+            ],
+            [
                 'attribute' => 'roles',
                 'label' => __('Roles'),
                 'type' => 'choice',
