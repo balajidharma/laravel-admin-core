@@ -68,7 +68,7 @@ class ActivityLogGrid extends CrudBuilder
                 'relation' => 'causer',
                 'searchable' => true,
                 'value' => function ($model) {
-                    return $model->causer->username;
+                    return $model->causer?->username;
                 },
             ],
             [
