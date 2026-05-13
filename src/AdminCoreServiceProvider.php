@@ -18,7 +18,7 @@ class AdminCoreServiceProvider extends ServiceProvider
         );
     }
 
-     /**
+    /**
      * Bootstrap the application events.
      *
      * @return void
@@ -28,8 +28,11 @@ class AdminCoreServiceProvider extends ServiceProvider
         if (app()->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/admin.php' => config_path('admin.php'),
-            ], 'config');
+            ], ['config', 'admin-core', 'admin-core-config']);
+
+            $this->publishes([
+                __DIR__.'/../database/seeders/AdminCoreSeeder.php' => database_path('seeders/AdminCoreSeeder.php'),
+            ], ['seeders', 'admin-core', 'admin-core-seeders']);
         }
     }
-
 }

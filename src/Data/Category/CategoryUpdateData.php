@@ -1,0 +1,69 @@
+<?php
+
+namespace BalajiDharma\LaravelAdminCore\Data\Category;
+
+use BalajiDharma\LaravelAdminCore\Data\BaseData;
+use Illuminate\Http\UploadedFile;
+use Spatie\LaravelData\Support\Validation\ValidationContext;
+
+class CategoryUpdateData extends BaseData
+{
+    public function __construct(
+        public ?UploadedFile $image,
+        public string $name,
+        public ?string $slug,
+        public ?string $description,
+        public ?bool $enabled,
+        public ?int $parent_id,
+        public ?int $weight = 0,
+        public ?string $color = null,
+    ) {}
+
+    public static function rules(ValidationContext $context): array
+    {
+        return [
+            'name' => 'required|max:255',
+            'description' => 'max:255',
+        ];
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function getIsEnabled(): bool
+    {
+        return $this->enabled ?? false;
+    }
+
+    public function getParentId(): ?int
+    {
+        return $this->parent_id;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function getImage(): ?UploadedFile
+    {
+        return $this->image;
+    }
+}

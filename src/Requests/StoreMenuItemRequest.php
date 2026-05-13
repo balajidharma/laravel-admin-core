@@ -3,9 +3,8 @@
 namespace BalajiDharma\LaravelAdminCore\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules;
 
-class UpdateUserRequest extends FormRequest
+class StoreMenuItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +24,9 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$this->user->id],
-            'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
+            'name' => 'required|max:255',
+            'uri' => 'required',
+            'description' => 'max:255',
         ];
     }
 }
